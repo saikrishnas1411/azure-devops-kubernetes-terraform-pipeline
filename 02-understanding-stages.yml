@@ -17,20 +17,20 @@ stages:
     - bash: echo $(Build.SourcesDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
     - bash: ls -R $(System.DefaultWorkingDirectory)
-    - bash: echo $(Build.ArtificatStagingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
     - bash: java -version
     - bash: node --version
     - bash: python --version
     - bash: mvn -version
-    - bash: ls -R $(Build.ArtificatStagingDirectory)
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: |
           **/*.yaml
           **/*.tf
-        TargetFolder: '$(Build.ArtificatStagingDirectory)'
-    - bash: ls -R $(Build.ArtificatStagingDirectory)
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
