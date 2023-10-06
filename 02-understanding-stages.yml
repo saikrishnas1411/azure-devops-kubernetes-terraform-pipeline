@@ -16,11 +16,21 @@ stages:
     - bash: echo $(Build.SourceBranchName)
     - bash: echo $(Build.SourcesDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
-    - bash: ls -R $(Build.BuildNumber)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtificatStagingDirectory)
     - bash: java -version
     - bash: node -version
     - bash: python -version
     - bash: mvn -version
+    - bash: ls -R $(Build.ArtificatStagingDirectory)
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+          **/*.tf
+        TargetFolder: '$(Build.ArtificatStagingDirectory)'
+    - bash: ls -R $(Build.ArtificatStagingDirectory)
 #   - job: SecondJob
 #     steps:
 #     - bash: echo build SecondJob
