@@ -19,8 +19,8 @@ stages:
     - bash: ls -R $(System.DefaultWorkingDirectory)
     - bash: echo $(Build.ArtificatStagingDirectory)
     - bash: java -version
-    - bash: node -version
-    - bash: python -version
+    - bash: node --version
+    - bash: python --version
     - bash: mvn -version
     - bash: ls -R $(Build.ArtificatStagingDirectory)
     - task: CopyFiles@2
