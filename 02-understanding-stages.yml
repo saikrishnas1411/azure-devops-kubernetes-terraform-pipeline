@@ -36,6 +36,7 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+        MaxArtifactSize: 1
 #   - job: SecondJob
 #     steps:
 #     - bash: echo build SecondJob
