@@ -3,10 +3,6 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-variables:
-  # Define variables here if needed
-  azureRegion: 'AustraliaCentral'
-  vmSize: 'Standard_B2s'
 
 steps:
 - script: echo K8S terraform Azure!
